@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RevitVersionSelector {
+namespace RevitVersionSelector.Resources {
     using System;
     
     

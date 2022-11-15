@@ -5,6 +5,7 @@
         <UseWpf>true</UseWpf>
         <TargetFramework>net48</TargetFramework>
         <LangVersion>default</LangVersion>
+        <ApplicationIcon>Resources\Revit.ico</ApplicationIcon>
     </PropertyGroup>
 
     <ItemGroup>
@@ -22,14 +23,17 @@
     </ItemGroup>
 
     <ItemGroup>
-      <EmbeddedResource Update="StringResources.resx">
+      <EmbeddedResource Update="Resources\StringResources.resx">
         <Generator>ResXFileCodeGenerator</Generator>
         <LastGenOutput>StringResources.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\StringResources.ru.resx">
+        <DependentUpon>StringResources.resx</DependentUpon>
       </EmbeddedResource>
     </ItemGroup>
 
     <ItemGroup>
-      <Compile Update="StringResources.Designer.cs">
+      <Compile Update="Resources\StringResources.Designer.cs">
         <DesignTime>True</DesignTime>
         <AutoGen>True</AutoGen>
         <DependentUpon>Resources.resx</DependentUpon>

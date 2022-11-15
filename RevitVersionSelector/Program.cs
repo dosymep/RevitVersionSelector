@@ -6,6 +6,7 @@ using System.Windows;
 using dosymep.Revit.FileInfo;
 
 using RevitVersionSelector.InstalledProducts;
+using RevitVersionSelector.Resources;
 
 namespace RevitVersionSelector {
     internal class Program {

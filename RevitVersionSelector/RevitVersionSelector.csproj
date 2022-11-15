@@ -1,7 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <OutputType>Exe</OutputType>
+        <OutputType>WinExe</OutputType>
+        <UseWpf>true</UseWpf>
         <TargetFramework>net48</TargetFramework>
         <LangVersion>default</LangVersion>
     </PropertyGroup>
@@ -18,6 +19,21 @@
         <Reference Include="dosymep.Revit.FileInfo">
             <HintPath>$(AppData)\pyRevit\Extensions\BIM4Everyone.lib\dosymep_libs\libs\dosymep.Revit.FileInfo.dll</HintPath>
         </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Update="StringResources.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>StringResources.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="StringResources.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Resources.resx</DependentUpon>
+      </Compile>
     </ItemGroup>
     
 </Project>

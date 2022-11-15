@@ -16,13 +16,12 @@ namespace RevitVersionSelector.InstalledProducts {
                 string guidValue = revitProduct.Code.ToString();
                 if(guidValue.StartsWith(StartProductGuid, StringComparison.CurrentCultureIgnoreCase)
                    && guidValue.EndsWith(FinishProductGuid, StringComparison.CurrentCultureIgnoreCase)) {
-                    revitProduct.RevitVersion = "20" + revitProduct.DisplayVersion.Split('.')[0];
                     yield return revitProduct;
                 }
             }
         }
 
-        public string RevitVersion { get; private set; }
+        public string RevitVersion => "20" + DisplayVersion.Split('.')[0];
         public string ApplicationFilePath => Path.Combine(InstallLocation, ApplicationFileName);
     }
 }

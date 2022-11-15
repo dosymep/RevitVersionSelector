@@ -20,18 +20,21 @@ namespace RevitVersionSelector {
                         .FirstOrDefault(item => item.RevitVersion.Equals(format));
 
                     if(revitProduct == null) {
-                        var result = MessageBox.Show(StringResources.MessageBoxContent,
-                            StringResources.MessageBoxTitle, MessageBoxButton.YesNo, MessageBoxImage.Warning);
-                        if(result == MessageBoxResult.Yes) {
-                            Process.Start("explorer.exe", revitFilePath);
-                        }
+                        ShowMessage(revitFilePath, StringResources.MessageBoxContent);
                     } else {
                         Process.Start(revitProduct.ApplicationFilePath, revitFilePath);
                     }
                 } catch(Exception ex) {
-                    Console.WriteLine(ex);
-                    Process.Start("explorer.exe", revitFilePath);
+                    ShowMessage(revitFilePath, ex.ToString());
                 }
+            }
+        }
+
+        private static void ShowMessage(string revitFilePath, string messageBoxContent) {
+            var result = MessageBox.Show(messageBoxContent,
+                StringResources.MessageBoxTitle, MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if(result == MessageBoxResult.Yes) {
+                Process.Start("explorer.exe", revitFilePath);
             }
         }
     }

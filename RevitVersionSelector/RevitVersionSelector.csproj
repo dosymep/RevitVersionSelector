@@ -2,23 +2,21 @@
 
     <PropertyGroup>
         <OutputType>Exe</OutputType>
-        <TargetFramework>net5.0</TargetFramework>
+        <TargetFramework>net48</TargetFramework>
+        <LangVersion>default</LangVersion>
     </PropertyGroup>
 
     <ItemGroup>
         <Reference Include="dosymep.AutodeskApps">
             <HintPath>$(AppData)\pyRevit\Extensions\BIM4Everyone.lib\dosymep_libs\libs\dosymep.AutodeskApps.dll</HintPath>
-            <Private>False</Private>
         </Reference>
 
         <Reference Include="dosymep.AutodeskApps.FileInfo">
             <HintPath>$(AppData)\pyRevit\Extensions\BIM4Everyone.lib\dosymep_libs\libs\dosymep.AutodeskApps.FileInfo.dll</HintPath>
-            <Private>False</Private>
         </Reference>
 
         <Reference Include="dosymep.Revit.FileInfo">
             <HintPath>$(AppData)\pyRevit\Extensions\BIM4Everyone.lib\dosymep_libs\libs\dosymep.Revit.FileInfo.dll</HintPath>
-            <Private>False</Private>
         </Reference>
     </ItemGroup>
     

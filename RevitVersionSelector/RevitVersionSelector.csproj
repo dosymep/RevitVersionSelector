@@ -39,5 +39,9 @@
         <DependentUpon>Resources.resx</DependentUpon>
       </Compile>
     </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="OpenMcdf" Version="2.2.1.12" />
+    </ItemGroup>
     
 </Project>

@@ -28,7 +28,8 @@ namespace RevitVersionSelector {
                     } else {
                         Process.Start(revitProduct.ApplicationFilePath, revitFilePath);
                     }
-                } catch {
+                } catch(Exception ex) {
+                    Console.WriteLine(ex);
                     Process.Start("explorer.exe", revitFilePath);
                 }
             }

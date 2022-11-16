@@ -14,9 +14,13 @@ namespace RevitVersionSelector {
         public static void Main(string[] args) {
             if(args.Length == 1) {
                 string revitFilePath = args[0];
+                Console.WriteLine(@"Args[0]: {0}", revitFilePath);
+
                 try {
                     var revitFileInfo = new RevitFileInfo(revitFilePath);
                     string format = revitFileInfo.BasicFileInfo.AppInfo.Format;
+                    Console.WriteLine(@"Format: {0}", format);
+
                     RevitProduct revitProduct = RevitProduct.GetInstalledProducts()
                         .FirstOrDefault(item => item.RevitVersion.Equals(format));
 
@@ -30,11 +34,15 @@ namespace RevitVersionSelector {
                                     revitProduct.ApplicationFilePath));
                         }
 
+                        Console.WriteLine(@"Application File Path: {0}", revitProduct.ApplicationFilePath);
                         Process.Start(revitProduct.ApplicationFilePath, $"\"{revitFilePath}\"");
                     }
                 } catch(Exception ex) {
-                    ShowMessage(revitFilePath, ex.ToString());
+                    ShowMessage(revitFilePath, ex.Message);
+                    Console.WriteLine(@"Exception: {0}", ex);
                 }
+            } else {
+                Console.WriteLine(@"Wrong Args: {0}", string.Join(", ", args));
             }
         }
 

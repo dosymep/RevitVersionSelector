@@ -20,7 +20,8 @@ namespace RevitVersionSelector {
                         .FirstOrDefault(item => item.RevitVersion.Equals(format));
 
                     if(revitProduct == null) {
-                        ShowMessage(revitFilePath, StringResources.MessageBoxContent);
+                        ShowMessage(revitFilePath,
+                            string.Format(StringResources.MessageBoxContent, format));
                     } else {
                         Process.Start(revitProduct.ApplicationFilePath, revitFilePath);
                     }

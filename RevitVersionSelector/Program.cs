@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Windows;
 
@@ -23,7 +24,13 @@ namespace RevitVersionSelector {
                         ShowMessage(revitFilePath,
                             string.Format(StringResources.MessageBoxContent, format));
                     } else {
-                        Process.Start(revitProduct.ApplicationFilePath, revitFilePath);
+                        if(!File.Exists(revitProduct.ApplicationFilePath)) {
+                            throw new InvalidOperationException(
+                                string.Format(StringResources.ExceptionApplicationFile,
+                                    revitProduct.ApplicationFilePath));
+                        }
+
+                        Process.Start(revitProduct.ApplicationFilePath, $"\"{revitFilePath}\"");
                     }
                 } catch(Exception ex) {
                     ShowMessage(revitFilePath, ex.ToString());

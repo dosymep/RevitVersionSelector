@@ -17,4 +17,7 @@
     <data name="MessageBoxTitle" xml:space="preserve">
         <value>Предупреждение!</value>
     </data>
+    <data name="ExceptionApplicationFile" xml:space="preserve">
+        <value>Файл приложения Autodesk Revit не было найдено по пути "{0}"</value>
+    </data>
 </root>

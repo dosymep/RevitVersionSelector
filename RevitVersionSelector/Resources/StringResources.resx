@@ -24,4 +24,7 @@
     <data name="MessageBoxTitle" xml:space="preserve">
         <value>Warning!</value>
     </data>
+    <data name="ExceptionApplicationFile" xml:space="preserve">
+        <value>Autodesk Revit application not found in path "{0}"</value>
+    </data>
 </root>

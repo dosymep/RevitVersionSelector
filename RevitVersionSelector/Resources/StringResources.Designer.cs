@@ -38,7 +38,7 @@ namespace RevitVersionSelector.Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("RevitVersionSelector.StringResources", typeof(StringResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("RevitVersionSelector.Resources.StringResources", typeof(StringResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -56,6 +56,15 @@ namespace RevitVersionSelector.Resources {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Autodesk Revit application not found in path &quot;{0}&quot;.
+        /// </summary>
+        internal static string ExceptionApplicationFile {
+            get {
+                return ResourceManager.GetString("ExceptionApplicationFile", resourceCulture);
             }
         }
         

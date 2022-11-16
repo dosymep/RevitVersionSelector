@@ -60,7 +60,7 @@ namespace RevitVersionSelector.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Autodesk Revit application not found in path &quot;{0}&quot;.
+        ///   Looks up a localized string similar to Autodesk Revit application not found in path &quot;{0}&quot;..
         /// </summary>
         internal static string ExceptionApplicationFile {
             get {
@@ -69,7 +69,7 @@ namespace RevitVersionSelector.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Autodesk Revit {} is not installed. Run the file anyway?.
+        ///   Looks up a localized string similar to Autodesk Revit {} is not installed..
         /// </summary>
         internal static string MessageBoxContent {
             get {

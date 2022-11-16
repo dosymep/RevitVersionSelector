@@ -19,12 +19,12 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="MessageBoxContent" xml:space="preserve">
-        <value>Autodesk Revit {} is not installed. Run the file anyway?</value>
+        <value>Autodesk Revit {} is not installed.</value>
     </data>
     <data name="MessageBoxTitle" xml:space="preserve">
         <value>Warning!</value>
     </data>
     <data name="ExceptionApplicationFile" xml:space="preserve">
-        <value>Autodesk Revit application not found in path "{0}"</value>
+        <value>Autodesk Revit application not found in path "{0}".</value>
     </data>
 </root>

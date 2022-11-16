@@ -12,6 +12,14 @@ using RevitVersionSelector.Resources;
 namespace RevitVersionSelector {
     internal class Program {
         public static void Main(string[] args) {
+            try {
+                StartRevit(args);
+            } catch(Exception ex) {
+                Console.WriteLine(@"Exception: {0}", ex);
+            }
+        }
+
+        private static void StartRevit(string[] args) {
             if(args.Length == 1) {
                 string revitFilePath = args[0];
                 Console.WriteLine(@"Args[0]: {0}", revitFilePath);
@@ -47,11 +55,8 @@ namespace RevitVersionSelector {
         }
 
         private static void ShowMessage(string revitFilePath, string messageBoxContent) {
-            var result = MessageBox.Show(messageBoxContent,
-                StringResources.MessageBoxTitle, MessageBoxButton.YesNo, MessageBoxImage.Warning);
-            if(result == MessageBoxResult.Yes) {
-                Process.Start("explorer.exe", revitFilePath);
-            }
+            MessageBox.Show(messageBoxContent,
+                StringResources.MessageBoxTitle, MessageBoxButton.OK, MessageBoxImage.Warning);
         }
     }
 }

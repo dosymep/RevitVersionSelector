@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Windows;
+using System.Windows.Forms;
 
 using dosymep.Revit.FileInfo;
 
@@ -55,8 +55,9 @@ namespace RevitVersionSelector {
         }
 
         private static void ShowMessage(string revitFilePath, string messageBoxContent) {
+            Application.EnableVisualStyles();
             MessageBox.Show(messageBoxContent,
-                StringResources.MessageBoxTitle, MessageBoxButton.OK, MessageBoxImage.Warning);
+                StringResources.MessageBoxTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
 }

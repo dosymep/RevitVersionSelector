@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
-        <UseWpf>true</UseWpf>
+        <UseWindowsForms>true</UseWindowsForms>
         <TargetFramework>net48</TargetFramework>
         <LangVersion>default</LangVersion>
         <ApplicationIcon>Resources\Revit.ico</ApplicationIcon>

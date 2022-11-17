@@ -33,9 +33,6 @@
     <data name="TaskDialogText" xml:space="preserve">
         <value>Not found Autodesk Revit {0}</value>
     </data>
-    <data name="TaskDialogExitButton" xml:space="preserve">
-        <value />
-    </data>
     <data name="TaskDialogExitButtonName" xml:space="preserve">
         <value>Close dialog</value>
     </data>

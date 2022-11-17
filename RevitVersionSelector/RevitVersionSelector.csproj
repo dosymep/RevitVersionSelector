@@ -3,7 +3,7 @@
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
         <UseWindowsForms>true</UseWindowsForms>
-        <TargetFramework>net5.0-windows</TargetFramework>
+        <TargetFramework>net48</TargetFramework>
         <LangVersion>default</LangVersion>
         <ApplicationIcon>Resources\Revit.ico</ApplicationIcon>
     </PropertyGroup>
@@ -41,6 +41,7 @@
     </ItemGroup>
 
     <ItemGroup>
+        <PackageReference Include="Microsoft-WindowsAPICodePack-Shell-6.0" Version="1.1.5" />
         <PackageReference Include="OpenMcdf" Version="2.2.1.12" />
     </ItemGroup>
 

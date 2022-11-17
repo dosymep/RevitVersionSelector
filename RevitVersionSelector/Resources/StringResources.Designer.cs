@@ -87,15 +87,6 @@ namespace RevitVersionSelector.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        internal static string TaskDialogExitButton {
-            get {
-                return ResourceManager.GetString("TaskDialogExitButton", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Close dialog.
         /// </summary>
         internal static string TaskDialogExitButtonName {

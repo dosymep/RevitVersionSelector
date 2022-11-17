@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
@@ -6,6 +7,8 @@ using System.Linq;
 using System.Windows.Forms;
 
 using dosymep.Revit.FileInfo;
+
+using Microsoft.WindowsAPICodePack.Dialogs;
 
 using RevitVersionSelector.InstalledProducts;
 using RevitVersionSelector.Resources;
@@ -34,12 +37,12 @@ namespace RevitVersionSelector {
 
                     RevitProduct revitProduct = RevitProduct.GetInstalledProducts()
                         .FirstOrDefault(item => item.RevitVersion.Equals(format));
-
+                    
                     if(revitProduct == null) {
                         var latestVersions = RevitProduct.GetInstalledProducts()
                             .Where(item => string.Compare(item.RevitVersion, format, StringComparison.Ordinal) > 0)
                             .ToArray();
-
+                    
                         OpenRevitFile(revitFileInfo, latestVersions);
                     } else {
                         OpenRevitFile(revitFileInfo, revitProduct);
@@ -56,7 +59,7 @@ namespace RevitVersionSelector {
         private static void OpenRevitFile(RevitFileInfo revitFileInfo, params RevitProduct[] revitProducts) {
             string format = revitFileInfo.BasicFileInfo.AppInfo.Format;
             if(revitProducts.Length == 0) {
-                ShowMessage(revitFileInfo.ModelPath, 
+                ShowMessage(revitFileInfo.ModelPath,
                     string.Format(StringResources.MessageBoxContent, format));
                 return;
             }
@@ -73,33 +76,49 @@ namespace RevitVersionSelector {
                 return;
             }
 
-            var page = new TaskDialogPage() {
-                AllowCancel = true,
-                Icon = TaskDialogIcon.Warning,
-                Heading = StringResources.TaskDialogHeading,
-                Text = string.Format(StringResources.TaskDialogHeading, format),
+            var taskDialog = new TaskDialog() {
+                Cancelable = true,
+                HyperlinksEnabled = true,
+                Icon = TaskDialogStandardIcon.Warning,
+                StartupLocation = TaskDialogStartupLocation.CenterScreen,
+                Text = string.Format(StringResources.TaskDialogText, format),
                 Caption = StringResources.MessageBoxTitle,
-                Buttons = CreateButtons(revitFileInfo, revitProducts),
-                Footnote = new TaskDialogFootnote("by dosymep") {Icon = TaskDialogIcon.Information}
+                FooterText = "by <a href=\"https:\\\\github.com\\dosymep\">dosymep</a>",
+                FooterIcon = TaskDialogStandardIcon.Information,
+                InstructionText = StringResources.TaskDialogHeading
             };
 
-            TaskDialog.ShowDialog(page, TaskDialogStartupLocation.CenterScreen);
-        }
-
-        private static TaskDialogButtonCollection CreateButtons(RevitFileInfo revitFileInfo,
-            params RevitProduct[] revitProducts) {
-            var buttons = new TaskDialogButtonCollection();
-            foreach(RevitProduct revitProduct in revitProducts.TakeLast(3)) {
-                buttons.Add(CreateButton(revitFileInfo, revitProduct));
+            taskDialog.HyperlinkClick += (s, e) => Process.Start(e.LinkText);
+            var buttons = CreateButtons(taskDialog, revitFileInfo, revitProducts).ToArray();
+            buttons[buttons.Length - 2].Default = true;
+            foreach(TaskDialogCommandLink taskDialogCommandLink in buttons) {
+                taskDialog.Controls.Add(taskDialogCommandLink);
             }
 
-            buttons.Add(new TaskDialogCommandLinkButton(StringResources.TaskDialogExitButton));
-            return buttons;
+            taskDialog.Show();
         }
 
-        private static TaskDialogCommandLinkButton CreateButton(RevitFileInfo revitFileInfo, RevitProduct revitProduct) {
-            var button = new TaskDialogCommandLinkButton(revitProduct.DisplayName);
-            button.Click += (s, e) => OpenRevitFile(revitFileInfo, revitProduct);
+        private static IEnumerable<TaskDialogCommandLink> CreateButtons(TaskDialog taskDialog,
+            RevitFileInfo revitFileInfo,
+            params RevitProduct[] revitProducts) {
+            foreach(RevitProduct revitProduct in revitProducts.Skip(revitProducts.Length - 3)) {
+                yield return CreateButton(taskDialog, revitFileInfo, revitProduct);
+            }
+
+            var exitCommand = new TaskDialogCommandLink(StringResources.TaskDialogExitButtonName,
+                StringResources.TaskDialogExitButtonName);
+            exitCommand.Click += (s, e) => taskDialog.Close();
+
+            yield return exitCommand;
+        }
+
+        private static TaskDialogCommandLink CreateButton(TaskDialog taskDialog, RevitFileInfo revitFileInfo,
+            RevitProduct revitProduct) {
+            var button = new TaskDialogCommandLink(revitProduct.DisplayName, revitProduct.DisplayName);
+            button.Click += (s, e) => {
+                taskDialog.Close();
+                OpenRevitFile(revitFileInfo, revitProduct);
+            };
 
             return button;
         }

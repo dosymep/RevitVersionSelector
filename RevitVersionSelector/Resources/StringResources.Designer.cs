@@ -69,7 +69,7 @@ namespace RevitVersionSelector.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Autodesk Revit {} is not installed..
+        ///   Looks up a localized string similar to Autodesk Revit {0} is not installed..
         /// </summary>
         internal static string MessageBoxContent {
             get {
@@ -83,6 +83,42 @@ namespace RevitVersionSelector.Resources {
         internal static string MessageBoxTitle {
             get {
                 return ResourceManager.GetString("MessageBoxTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TaskDialogExitButton {
+            get {
+                return ResourceManager.GetString("TaskDialogExitButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Close dialog.
+        /// </summary>
+        internal static string TaskDialogExitButtonName {
+            get {
+                return ResourceManager.GetString("TaskDialogExitButtonName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Autodesk Revit Version.
+        /// </summary>
+        internal static string TaskDialogHeading {
+            get {
+                return ResourceManager.GetString("TaskDialogHeading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not found Autodesk Revit {0}.
+        /// </summary>
+        internal static string TaskDialogText {
+            get {
+                return ResourceManager.GetString("TaskDialogText", resourceCulture);
             }
         }
     }

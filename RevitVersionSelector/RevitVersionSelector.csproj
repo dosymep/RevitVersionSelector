@@ -3,7 +3,7 @@
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
         <UseWindowsForms>true</UseWindowsForms>
-        <TargetFramework>net48</TargetFramework>
+        <TargetFramework>net5.0-windows</TargetFramework>
         <LangVersion>default</LangVersion>
         <ApplicationIcon>Resources\Revit.ico</ApplicationIcon>
     </PropertyGroup>
@@ -23,25 +23,25 @@
     </ItemGroup>
 
     <ItemGroup>
-      <EmbeddedResource Update="Resources\StringResources.resx">
-        <Generator>ResXFileCodeGenerator</Generator>
-        <LastGenOutput>StringResources.Designer.cs</LastGenOutput>
-      </EmbeddedResource>
-      <EmbeddedResource Update="Resources\StringResources.ru.resx">
-        <DependentUpon>StringResources.resx</DependentUpon>
-      </EmbeddedResource>
+        <EmbeddedResource Update="Resources\StringResources.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>StringResources.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\StringResources.ru.resx">
+            <DependentUpon>StringResources.resx</DependentUpon>
+        </EmbeddedResource>
     </ItemGroup>
 
     <ItemGroup>
-      <Compile Update="Resources\StringResources.Designer.cs">
-        <DesignTime>True</DesignTime>
-        <AutoGen>True</AutoGen>
-        <DependentUpon>Resources.resx</DependentUpon>
-      </Compile>
+        <Compile Update="Resources\StringResources.Designer.cs">
+            <DesignTime>True</DesignTime>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>Resources.resx</DependentUpon>
+        </Compile>
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="OpenMcdf" Version="2.2.1.12" />
+        <PackageReference Include="OpenMcdf" Version="2.2.1.12" />
     </ItemGroup>
-    
+
 </Project>

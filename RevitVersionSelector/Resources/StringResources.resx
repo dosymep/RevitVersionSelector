@@ -19,12 +19,24 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="MessageBoxContent" xml:space="preserve">
-        <value>Autodesk Revit {} is not installed.</value>
+        <value>Autodesk Revit {0} is not installed.</value>
     </data>
     <data name="MessageBoxTitle" xml:space="preserve">
         <value>Warning!</value>
     </data>
     <data name="ExceptionApplicationFile" xml:space="preserve">
         <value>Autodesk Revit application not found in path "{0}".</value>
+    </data>
+    <data name="TaskDialogHeading" xml:space="preserve">
+        <value>Select Autodesk Revit Version</value>
+    </data>
+    <data name="TaskDialogText" xml:space="preserve">
+        <value>Not found Autodesk Revit {0}</value>
+    </data>
+    <data name="TaskDialogExitButton" xml:space="preserve">
+        <value />
+    </data>
+    <data name="TaskDialogExitButtonName" xml:space="preserve">
+        <value>Close dialog</value>
     </data>
 </root>

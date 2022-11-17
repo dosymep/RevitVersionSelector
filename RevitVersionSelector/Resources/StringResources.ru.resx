@@ -20,4 +20,13 @@
     <data name="ExceptionApplicationFile" xml:space="preserve">
         <value>Файл приложения Autodesk Revit не было найдено по пути "{0}".</value>
     </data>
+    <data name="TaskDialogHeading" xml:space="preserve">
+        <value>Выберите версию Autodesk Revit</value>
+    </data>
+    <data name="TaskDialogText" xml:space="preserve">
+        <value>Не найден Autodesk Revit {0}</value>
+    </data>
+    <data name="TaskDialogExitButtonName" xml:space="preserve">
+        <value>Закрыть окно</value>
+    </data>
 </root>

@@ -6,7 +6,7 @@ using System.IO;
 using Microsoft.Win32;
 
 namespace RevitVersionSelector.InstalledProducts {
-    public abstract class InstalledProduct {
+    public abstract class InstalledProduct : IComparable<InstalledProduct>, IComparable {
         public static readonly string SubKeyPath = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall";
 
         public static IEnumerable<T> GetInstalledProducts<T>(Guid productGuid)
@@ -61,5 +61,51 @@ namespace RevitVersionSelector.InstalledProducts {
             var cultureCode = GetValue<int?>(productCode, propertyName);
             return cultureCode.HasValue ? CultureInfo.GetCultureInfo(cultureCode.Value) : defaultValue;
         }
+
+        #region IComparable<InstalledProduct>
+
+        public int CompareTo(InstalledProduct other) {
+            if(ReferenceEquals(this, other)) {
+                return 0;
+            }
+
+            if(ReferenceEquals(null, other)) {
+                return 1;
+            }
+
+            return Comparer<Version>.Default.Compare(DisplayVersion, other.DisplayVersion);
+        }
+
+        public int CompareTo(object obj) {
+            if(ReferenceEquals(null, obj)) {
+                return 1;
+            }
+
+            if(ReferenceEquals(this, obj)) {
+                return 0;
+            }
+
+            return obj is InstalledProduct other
+                ? CompareTo(other)
+                : throw new ArgumentException($"Object must be of type {nameof(InstalledProduct)}");
+        }
+
+        public static bool operator <(InstalledProduct left, InstalledProduct right) {
+            return Comparer<InstalledProduct>.Default.Compare(left, right) < 0;
+        }
+
+        public static bool operator >(InstalledProduct left, InstalledProduct right) {
+            return Comparer<InstalledProduct>.Default.Compare(left, right) > 0;
+        }
+
+        public static bool operator <=(InstalledProduct left, InstalledProduct right) {
+            return Comparer<InstalledProduct>.Default.Compare(left, right) <= 0;
+        }
+
+        public static bool operator >=(InstalledProduct left, InstalledProduct right) {
+            return Comparer<InstalledProduct>.Default.Compare(left, right) >= 0;
+        }
+
+        #endregion
     }
 }

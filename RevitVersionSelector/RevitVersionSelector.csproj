@@ -6,6 +6,18 @@
         <TargetFramework>net48</TargetFramework>
         <LangVersion>default</LangVersion>
         <ApplicationIcon>Resources\Revit.ico</ApplicationIcon>
+        <PackageVersion>1.0.1</PackageVersion>
+        <Title>Revit Version Selector</Title>
+        <Authors>dosymep</Authors>
+        <Description>An application that launches the needed version of Revit when opening .rvt, .rfa, .rte files.</Description>
+        <Copyright>dosymep 2022</Copyright>
+        <PackageProjectUrl>https://github.com/dosymep/RevitVersionSelector</PackageProjectUrl>
+        <PackageLicenseUrl>https://github.com/dosymep/RevitVersionSelector/blob/v1.0.1/LICENSE.md</PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/dosymep/RevitVersionSelector</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageTags>application, tool, revit, dosymep</PackageTags>
+        <PackageReleaseNotes>added task dialog to select revit version if not found</PackageReleaseNotes>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     </PropertyGroup>
 
     <ItemGroup>

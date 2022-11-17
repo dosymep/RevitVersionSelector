@@ -114,6 +114,16 @@
         {
             "LaunchCondition"
             {
+                "{A06ECF26-33A3-4562-8140-9B0E340D4F24}:_4FDBBD499207428394D570C4F23F95A5"
+                {
+                "Name" = "8:.NET Core"
+                "Message" = "8:[VSDNETCOREMSG]"
+                "AllowLaterVersions" = "11:FALSE"
+                "InstallUrl" = "8:https://dotnet.microsoft.com/download/dotnet-core/[NetCoreVerMajorDotMinor]"
+                "IsNETCore" = "11:TRUE"
+                "Architecture" = "2:0"
+                "Runtime" = "2:0"
+                }
                 "{A06ECF26-33A3-4562-8140-9B0E340D4F24}:_DC93CDA0EB7D4F4ABE66BBE642942F0C"
                 {
                 "Name" = "8:.NET Framework"
@@ -256,15 +266,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Revit Version Selector"
-        "ProductCode" = "8:{FCA7BFEA-1947-4D76-BDDE-F44B8E92753D}"
-        "PackageCode" = "8:{326BF1B2-87C1-4F41-8017-AB7665C369F2}"
+        "ProductCode" = "8:{8736C15D-18C8-476C-80C3-D3B6A410C4B1}"
+        "PackageCode" = "8:{567CD465-DC82-48C7-B46A-7EC95B6DF485}"
         "UpgradeCode" = "8:{A9FB65AF-0303-4CBF-A76C-CF4D779681D6}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.0"
+        "ProductVersion" = "8:1.0.1"
         "Manufacturer" = "8:dosymep"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:https://github.com/dosymep/RevitVersionSelector"

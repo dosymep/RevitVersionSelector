@@ -29,15 +29,15 @@ namespace RevitVersionSelector.InstalledProducts {
         public Guid Code { get; private set; }
         public Guid ProductCode { get; private set; }
 
-        public string DisplayName { get; private set; }
-        public Version DisplayVersion { get; private set; }
+        public virtual string DisplayName { get; private set; }
+        public virtual Version DisplayVersion { get; private set; }
 
-        public DateTime InstallDate { get; private set; }
-        public string InstallSource { get; private set; }
-        public string InstallLocation { get; private set; }
+        public virtual DateTime InstallDate { get; private set; }
+        public virtual string InstallSource { get; private set; }
+        public virtual string InstallLocation { get; private set; }
 
-        public string Publisher { get; private set; }
-        public CultureInfo Language { get; private set; }
+        public virtual string Publisher { get; private set; }
+        public virtual CultureInfo Language { get; private set; }
 
         protected static T GetValue<T>(Guid productCode, string propertyName, T defaultValue = default) {
             string subKeyPath = Path.Combine(SubKeyPath, productCode.ToString("B"));
